@@ -1,0 +1,20 @@
+# nacos配置
+spring:
+  profiles:
+    active: dev
+  application:
+    name: api-boss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #Nacos服务注册中心地址
+        namespace: 1aa6f35c-21bc-4dfb-bae2-93ebe539fc17
+      config:
+        namespace: 1aa6f35c-21bc-4dfb-bae2-93ebe539fc17
+        server-addr: 127.0.0.1:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        group: api-boss
+
+# nacos端配置文件DataId的命名规则是：
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+# 本案例的DataID是:service-order-dev.yaml

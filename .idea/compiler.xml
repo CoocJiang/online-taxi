@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-commons" />
+        <module name="api-boss" />
+        <module name="service-orders" />
+        <module name="test-alipay" />
+        <module name="sse-driver-client" />
+        <module name="cloud-gateway" />
+        <module name="api-driver" />
+        <module name="passenger-api" />
+        <module name="service-verification" />
+        <module name="service-map" />
+        <module name="service-price" />
+        <module name="sentinel-token-server" />
+        <module name="service-driver" />
+        <module name="service-passenger-users" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="redis-test" target="1.8" />
+      <module name="service-driver-user" target="1.8" />
+      <module name="service-driver-users" target="1.8" />
+      <module name="service-order" target="1.8" />
+      <module name="service-passenger-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

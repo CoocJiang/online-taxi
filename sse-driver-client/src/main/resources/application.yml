@@ -1,0 +1,10 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: service-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: 1aa6f35c-21bc-4dfb-bae2-93ebe539fc17

@@ -1,0 +1,15 @@
+server:
+  port: 8084
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/service-price?characterEncoding=utf-8&serverTomezone=GMT%2B8
+    username: root
+    password: 12345678
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: 1aa6f35c-21bc-4dfb-bae2-93ebe539fc17
+  application:
+    name: service-price

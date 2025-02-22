@@ -1,0 +1,45 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: 1aa6f35c-21bc-4dfb-bae2-93ebe539fc17
+    gateway:
+      routes:
+        - id: api-passenger               #路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://api-paassenger               #匹配后提供服务的路由地址
+          predicates:
+            - Path=/api-passenger/**             # 断言，路径相匹配的进行路由
+
+
+        - id: api-driver             #路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://api-driver                #匹配后提供服务的路由地址
+          predicates:
+            - Path=/api-driver/**             # 断言，路径相匹配的进行路由
+
+
+        - id: api-boss             #路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://api-boss                #匹配后提供服务的路由地址
+          predicates:
+            - Path=/api-boss/**             # 断言，路径相匹配的进行路由
+
+  redis:
+    database: 0
+    port: 6379
+    #    password: #111111
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    host: localhost                            #192.168.6.112
+
+path-interceptor:
+  NoAuthPaths:
+   - /api-passenger/test
+   - /api-driver/test

@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+<h1>乘客监听页面</h1>
+<button onclick="setmessageContent()">展示消息</button>
+<div id="message">展示服务端发送的消息:<br/></div>
+<br/>
+
+<button onclick="Sourceclose()">关闭连接</button>
+</body>
+<script>
+    userId = "1777970564620242946";
+    identity = 1;
+    if (window.EventSource){
+        source = new EventSource("http://localhost:9001/connect/?UserId="+userId+"&identity="+identity);
+        source.addEventListener("message",function (e){
+            content = e.data;
+            setmessageContent(content);
+        })
+    }
+    function setmessageContent(content){
+        document.getElementById("message").innerHTML+=(content+'<br/>');
+    }
+
+
+    function closemessage(){
+        document.getElementById("message").innerHTML+=("连接已经关闭"+'<br/>');
+    }
+
+    function Sourceclose(){
+        source.close();
+        httpRequest = new XMLHttpRequest();
+        httpRequest.open("get","http://localhost:9001/close/?Userid="+userId+"&identity="+identity);
+        httpRequest.send();
+        closemessage()
+    }
+</script>
+
+</html>

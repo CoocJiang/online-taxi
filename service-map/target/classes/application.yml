@@ -1,0 +1,18 @@
+server:
+  port: 8085
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/service-map?characterEncoding=utf-8&serverTomezone=GMT%2B8
+    username: root
+    password: 12345678
+  application:
+    name: service-map
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+amap:
+  key: 69d7396ecfe71d97d68624b25266d2ad
+  sid: 1024143
